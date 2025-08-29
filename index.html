@@ -3,403 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mahadev E-mitra</title>
+  <title>Mahadev E-Mitra</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, sans-serif;
-      background: #000000;
-      min-height: 100vh;
-      padding: 20px;
-      color: #ffffff;
-    }
-
-    /* Navbar Styles */
-    .navbar {
-      background: #000000;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(255, 87, 34, 0.4);
-      padding: 1rem 2rem;
-      margin-bottom: 2rem;
-      border: 2px solid #ff5722;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #ff5722;
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: -0.5px;
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      object-fit: cover;
-      filter: drop-shadow(0 0 3px #ff5722);
-      transition: transform 0.3s ease;
-    }
-
-    .brand:hover .logo {
-      transform: rotate(10deg);
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-link:hover {
-      color: #ff5722;
-      background: rgba(255, 87, 34, 0.1);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: #ff5722;
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after {
-      width: 80%;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      padding: 8px;
-      background: transparent;
-      border: none;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger:hover {
-      background: rgba(255, 87, 34, 0.1);
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #ffffff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
-      background: #ff5722;
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-      background: #ff5722;
-    }
-
-    /* Mobile Menu Styles */
-    .mobile-menu {
-      background: #000000;
-      border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(255, 87, 34, 0.4);
-      padding: 1rem;
-      margin-top: 1rem;
-      display: none;
-      border: 2px solid #ff5722;
-    }
-
-    .mobile-menu.active {
-      display: block;
-      animation: slideDown 0.3s ease;
-    }
-
-    .mobile-nav-menu {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .mobile-nav-link {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 500;
-      padding: 1rem;
-      border-radius: 8px;
-      display: block;
-      transition: all 0.3s ease;
-    }
-
-    .mobile-nav-link:hover {
-      color: #ff5722;
-      background: rgba(255, 87, 34, 0.1);
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Hero Section Styles */
-    .hero {
-      background: #121212;
-      border-radius: 24px;
-      padding: 4rem 2rem;
-      margin: 2rem auto;
-      max-width: 1200px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(255, 87, 34, 0.4);
-      color: #ffffff;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: #ff5722;
-      color: #ffffff;
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.6);
-    }
-
-    .hero-heading {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.5px;
-    }
-
-    .hero-subheading {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #cccccc;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .btn-primary {
-      background: #ff5722;
-      color: #ffffff;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 8px 25px rgba(255, 87, 34, 0.6);
-    }
-
-    .btn-primary:hover {
-      background: #e64a19;
-      box-shadow: 0 12px 35px rgba(230, 74, 25, 0.7);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #ff5722;
-      padding: 1rem 2rem;
-      border: 2px solid #ff5722;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-secondary:hover {
-      background: #ff5722;
-      color: #ffffff;
-      transform: translateY(-2px);
-    }
-
-    .banner-text {
-      background: rgba(255, 87, 34, 0.15);
-      padding: 1.5rem;
-      border-radius: 16px;
-      text-align: center;
-      margin-top: 2rem;
-      border: 1px solid rgba(255, 87, 34, 0.3);
-      color: #ffccbc;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .service-item {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 16px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 87, 34, 0.2);
-      color: #ffffff;
-    }
-
-    .service-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
-      border-color: #ff5722;
-    }
-
-    .service-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 1rem;
-      background: #ff5722;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 1.5rem;
-    }
-
-    .service-name {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-menu {
-        display: none;
-      }
-
-      .navbar {
-        padding: 1rem;
-      }
-
-      .hero {
-        padding: 3rem 1.5rem;
-      }
-
-      .hero-heading {
-        font-size: 2.5rem;
-      }
-
-      .hero-subheading {
-        font-size: 1.1rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .brand-name {
-        font-size: 1.25rem;
-      }
-
-      .logo {
-        width: 32px;
-        height: 32px;
-      }
-
-      .hero-heading {
-        font-size: 2rem;
-      }
-
-      .hero-subheading {
-        font-size: 1rem;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <nav class="navbar">
@@ -414,11 +24,11 @@
       </a>
 
       <ul class="nav-menu">
-        <li><a href="#" class="nav-link">Home</a></li>
-        <li><a href="#" class="nav-link">Services</a></li>
-        <li><a href="#" class="nav-link">About</a></li>
-        <li><a href="#" class="nav-link">Contact</a></li>
-        <li><a href="#" class="nav-link">FAQ</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
       </ul>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -431,7 +41,7 @@
     <div class="mobile-menu" id="mobile-menu">
       <ul class="mobile-nav-menu">
         <li><a href="#" class="mobile-nav-link">Home</a></li>
-        <li><a href="#" class="mobile-nav-link">Services</a></li>
+        <li><a href="services.html" class="mobile-nav-link">Services</a></li>
         <li><a href="#" class="mobile-nav-link">About</a></li>
         <li><a href="#" class="mobile-nav-link">Contact</a></li>
         <li><a href="#" class="mobile-nav-link">FAQ</a></li>
@@ -517,50 +127,137 @@
       </div>
     </div>
   </section>
+  <!-- Extended Why choose us Section -->
+  <section id="services" class="max-w-6xl mx-auto mt-16">
+    <h2 class="text-3xl font-bold text-orange-500 mb-8 text-center">Why Choose Us?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 bg-[#1a1a1a] rounded-xl border border-orange-600 hover:shadow-xl hover:scale-105 transition">
+         <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+        <h3 class="text-xl font-semibold mb-2">Fast Service</h3>
+        <p class="text-gray-400">We process applications quickly so you save time.</p>
+      </div>
+      <div class="p-6 bg-[#1a1a1a] rounded-xl border border-orange-600 hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+        <h3 class="text-xl font-semibold mb-2">Trusted & Secure</h3>
+        <p class="text-gray-400">Your documents are safe with us — 100% privacy guaranteed.</p>
+      </div>
+      <div class="p-6 bg-[#1a1a1a] rounded-xl border border-orange-600 hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-headset fa-3x text-primary mb-3"></i>
+        <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+        <p class="text-gray-400">Always ready to assist with your queries anytime.</p>
+      </div>
+    </div>
+  </section>
+    <!-- About Section -->
+  <section id="about" class="max-w-6xl mx-auto mt-16 bg-[#121212] p-10 rounded-2xl shadow-lg border border-orange-600">
+    <h2 class="text-3xl font-bold text-orange-500 mb-6 text-center">About Us</h2>
+    <p class="text-gray-300 text-lg leading-relaxed text-center">
+      Mahadev E-Mitra is your trusted partner for all digital and government services.
+      We provide fast, reliable, and hassle-free assistance for Aadhaar, PAN, Passport,
+      Driving License, Ration Card, Certificates, and more. Our mission is to make
+      government services simple, accessible, and transparent for everyone.
+    </p>
+  </section>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
+  
+  <!-- Extended Services Section -->
+  <section id="services" class="max-w-6xl mx-auto mt-16">
+    <h2 class="text-3xl font-bold text-orange-500 mb-8 text-center">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 bg-[#1a1a1a] rounded-xl border border-orange-600 hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-university text-4xl text-orange-500 mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Banking Services</h3>
+        <p class="text-gray-400">Money transfer, account opening, and other financial services.</p>
+      </div>
+      <div class="p-6 bg-[#1a1a1a] rounded-xl border border-orange-600 hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-lightbulb text-4xl text-orange-500 mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Utility Bill Payments</h3>
+        <p class="text-gray-400">Pay electricity, water, gas, and mobile bills in one place.</p>
+      </div>
+      <div class="p-6 bg-[#1a1a1a] rounded-xl border border-orange-600 hover:shadow-xl hover:scale-105 transition">
+        <i class="fas fa-briefcase text-4xl text-orange-500 mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Government Schemes</h3>
+        <p class="text-gray-400">Guidance and enrollment in various welfare schemes.</p>
+      </div>
+    </div>
+  </section>
+    <!-- Services Section -->
+  <div class="mt-4 text-center">
+      <a href="services.html" class="btn px-4 py-2" 
+         style="background:#ff6600; color:#fff; border-radius:30px; font-weight:bold;">
+         View All Services
+      </a>
+    </div>
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-    });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (
-        !hamburger.contains(e.target) &&
-        !mobileMenu.contains(e.target) &&
-        mobileMenu.classList.contains('active')
-      ) {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-      }
-    });
 
-    // Close mobile menu when a link is clicked
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-      });
-    });
+	<!-- Contact Section -->
+<section id="contact" class="max-w-6xl mx-auto mt-16 bg-[#121212] p-10 rounded-2xl shadow-lg border border-orange-600">
+  <h2 class="text-3xl font-bold text-orange-500 mb-6 text-center">Contact Us</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    
+    <!-- Contact Form -->
+    <form class="space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-[#1a1a1a] border border-orange-600 text-white" required>
+      <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-[#1a1a1a] border border-orange-600 text-white" required>
+      <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg bg-[#1a1a1a] border border-orange-600 text-white" required></textarea>
+      <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg transition">Send Message</button>
+    </form>
 
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
-      });
-    });
-  </script>
+    <!-- Contact Info -->
+    <div class="text-gray-300 space-y-4 flex flex-col justify-center">
+      <p><i class="fas fa-map-marker-alt text-orange-500"></i> Near Ramdev Ji Temple, Baribaas, Sardarshahar, Rajasthan</p>
+      <a href="tel:+919772886731"><i class="fas fa-phone text-orange-500"></i> +91 97728 86731</a>
+      <a href="mailto:govindemailcom024@gmail.com"><i class="fas fa-envelope text-orange-500"></i> govindemailcom024@gmail.com</a>
+
+      <!-- Call Button -->
+      <a href="tel:+919772886731" 
+         class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-lg text-white font-semibold transition w-fit">
+        <i class="fas fa-phone-alt"></i> Call Us
+      </a>
+
+      <!-- Social Media Links -->
+      <div class="flex gap-4 mt-6">
+        <a href="https://facebook.com" target="_blank" class="text-blue-500 text-2xl hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" class="text-pink-500 text-2xl hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919876543210" target="_blank" class="text-green-500 text-2xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://youtube.com" target="_blank" class="text-red-500 text-2xl hover:scale-110 transition"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FAQ Section -->
+  <section id="faq" class="max-w-6xl mx-auto mt-16">
+    <h2 class="text-3xl font-bold text-orange-500 mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <details class="bg-[#1a1a1a] p-4 rounded-lg border border-orange-600">
+        <summary class="cursor-pointer font-semibold text-white">How do I book a service?</summary>
+        <p class="text-gray-400 mt-2">You can book a service by clicking on "Book a Service" button in the hero section.</p>
+      </details>
+      <details class="bg-[#1a1a1a] p-4 rounded-lg border border-orange-600">
+        <summary class="cursor-pointer font-semibold text-white">Do you provide doorstep services?</summary>
+        <p class="text-gray-400 mt-2">Currently we provide services only at our center, doorstep delivery will be introduced soon.</p>
+      </details>
+      <details class="bg-[#1a1a1a] p-4 rounded-lg border border-orange-600">
+        <summary class="cursor-pointer font-semibold text-white">Are government fees included?</summary>
+        <p class="text-gray-400 mt-2">Government charges are extra and will be informed before submitting the application.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black mt-16 py-8 border-t border-orange-600">
+    <div class="max-w-6xl mx-auto text-center text-gray-400">
+      <p>&copy; 2025 Mahadev E-Mitra. All Rights Reserved.</p>
+      <div class="flex justify-center gap-6 mt-4 text-orange-500">
+        <a href="#"><i class="fab fa-facebook text-xl"></i></a>
+        <a href="#"><i class="fab fa-instagram text-xl"></i></a>
+        <a href="https://wa.me/+919772886731"><i class="fab fa-whatsapp text-xl"></i></a>
+      </div>
+    </div>
+  </footer>
+<script src="assets/app.js"></script>
 </body>
 </html>
